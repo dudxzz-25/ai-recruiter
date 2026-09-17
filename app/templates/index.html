@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Recruiter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="container">
+  <header><span class="badge">NLP + SQL</span><h1>AI Recruiter</h1><p>Compare um currículo com uma descrição de vaga.</p></header>
+  <form method="post" enctype="multipart/form-data">
+    <label>Currículo em texto</label><textarea name="resume_text" placeholder="Cole aqui o currículo..."></textarea>
+    <label>Ou envie TXT/PDF</label><input type="file" name="resume_file" accept=".txt,.pdf">
+    <label>Descrição da vaga</label><textarea name="job_description" required placeholder="Cole aqui a vaga..."></textarea>
+    <button type="submit">Analisar compatibilidade</button>
+  </form>
+  {% if result %}
+  <section class="result">
+    <div class="score"><strong>{{ result.score }}%</strong><span>compatibilidade</span></div>
+    <div><p>Semântica: <b>{{ result.semantic_score }}%</b></p><p>Skills: <b>{{ result.skill_score }}%</b></p></div>
+    <div><h3>Encontradas</h3><div class="chips">{% for x in result.matched %}<span>{{ x }}</span>{% else %}<em>Nenhuma skill mapeada.</em>{% endfor %}</div></div>
+    <div><h3>Não encontradas</h3><div class="chips missing">{% for x in result.missing %}<span>{{ x }}</span>{% else %}<em>Nenhuma.</em>{% endfor %}</div></div>
+  </section>
+  {% endif %}
+  <footer>Projeto demonstrativo. Não use o score como decisão automatizada de contratação.</footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
