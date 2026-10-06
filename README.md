@@ -1,5 +1,13 @@
 # AI Recruiter
 
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-NLP-3776AB?logo=python&logoColor=white">
+  <img alt="Flask" src="https://img.shields.io/badge/Flask-Web-000000?logo=flask&logoColor=white">
+  <img alt="NLP" src="https://img.shields.io/badge/NLP-TF--IDF-6B46C1">
+  <a href="https://github.com/dudxzz-25/ai-recruiter/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/dudxzz-25/ai-recruiter/actions/workflows/ci.yml/badge.svg"></a>
+</p>
+
+
 [![CI](https://github.com/dudxzz-25/ai-recruiter/actions/workflows/ci.yml/badge.svg)](https://github.com/dudxzz-25/ai-recruiter/actions/workflows/ci.yml)
 
 Aplicação web de análise de compatibilidade entre currículo e vaga usando **NLP com TF-IDF, similaridade de cosseno e extração de competências**.
